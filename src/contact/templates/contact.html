@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Contact Us</h1>
-
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit Form" class="btn btn-default">
-    </form>
+    <h1>{{ title }}</h1>
+    {% if confirm_message %}
+        <p>{{ confirm_message }}</p>
+    {% endif %}
+    {% if form %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit Form" class="btn btn-default">
+        </form>
+    {% endif %}
 {% endblock %}
